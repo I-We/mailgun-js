@@ -1,5 +1,5 @@
 {
-  "name": "mailgun.js",
+  "name": "@iwe/mailgun.js",
   "version": "3.3.0",
   "main": "dist/mailgun.js",
   "types": "dist/index.d.ts",
