@@ -143,11 +143,9 @@ class Request {
         if ('attachment' === key || 'inline' === key) {
           const obj = data[key];
 
-          if (typeof obj === 'string') {
-            formData.append(key, obj);
-          } else if (Array.isArray(obj)) {
+          if (Array.isArray(obj)) {
             obj.forEach(function (item) {
-              const data = item.data ? item.data : item;
+              const data = isStream(item) ? item : item.data;
               const options = getAttachmentOptions(item);
               (formData as any).append(key, data, options);
             });
